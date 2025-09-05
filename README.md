@@ -37,9 +37,9 @@ pip install django
 
 ## Project Setup
 
-1.Create a folder named DESCRIPTIVE_ANALYSIS**
+1.Create a folder named DESCRIPTIVE_ANALYSIS
 
-2.Clone this repository into the folder:** 
+2.Clone this repository into the folder
 
 ## To Run the Django Application
 
