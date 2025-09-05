@@ -9,7 +9,8 @@ The Temperature Data Analysis Project is a Python-based web application that use
 
 1. **Install Python 3.10 or Higher**  
    - Download from: [Python Downloads](https://www.python.org/downloads/)  
-   - During installation, ensure ✅ **Add Python to PATH** is checked.  
+   - During installation, ensure
+   - **Add Python to PATH** is checked.  
    - Verify installation:  
     In command prompt:python --version
 
