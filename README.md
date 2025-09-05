@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Temperature Data Analysis Project   
 
 This project focuses on **temperature data analysis** using **Machine Learning (TensorFlow/Keras)**, with a **Flask-based model** and a **Django web application** for interactive dashboards.  
@@ -55,3 +56,6 @@ http://127.0.0.1:8000/temperature_trend/
 **Dashboard**
 http://127.0.0.1:8000/dashboard/   
 
+=======
+# temperature-data-analysis
+>>>>>>> 786258e114bf53cdb51826f13569c9789701954c
