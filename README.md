@@ -2,6 +2,7 @@
 # Temperature Data Analysis Project   
 
 This project focuses on **temperature data analysis** using **Machine Learning (TensorFlow/Keras)**, with a **Flask-based model** and a **Django web application** for interactive dashboards.  
+The Temperature Data Analysis Project is a Python-based web application that uses machine learning and data visualization to study temperature patterns. It integrates TensorFlow for model building, Flask for serving the model, and Django for creating an interactive web interface where users can view state-wise analysis, trend reports, and dashboards.
 
 
 ## Prerequisites  
@@ -39,10 +40,10 @@ pip install django
 ## To Run the Django Application
 
 **Run initial migrations:**
-python manage.py migrate
+In terminal(visual studio code): python manage.py migrate
 
 **Start the development server:**
-python manage.py runserver
+In terminal(visual studio code): python manage.py runserver
 
 **Open a browser and visit:**
 http://127.0.0.1:8000/
@@ -56,6 +57,4 @@ http://127.0.0.1:8000/temperature_trend/
 **Dashboard**
 http://127.0.0.1:8000/dashboard/   
 
-=======
-# temperature-data-analysis
 
