@@ -35,11 +35,15 @@ pip install flask pillow
 
 pip install django      
 
-## Project Setup
+##  Project Setup  
 
-1.Create a folder named DESCRIPTIVE_ANALYSIS
+1. **Create a folder named `DESCRIPTIVE_ANALYSIS`.**  
+2. **Open the `DESCRIPTIVE_ANALYSIS` folder in Visual Studio Code.**  
+3. **Open the integrated terminal in VS Code.**  
+4. **Clone this repository into the folder using:**
+   In terminal(vs code):
+   git clone https://github.com/Adithya3002/temperature-data-analysis.git .   
 
-2.Clone this repository into the folder
 
 ## To Run the Django Application
 
