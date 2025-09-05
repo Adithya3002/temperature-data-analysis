@@ -39,10 +39,12 @@ pip install django
 
 1. **Create a folder named `DESCRIPTIVE_ANALYSIS`.**  
 2. **Open the `DESCRIPTIVE_ANALYSIS` folder in Visual Studio Code.**  
-3. **Open the integrated terminal in VS Code.**  
+3. **Open the terminal in VS Code.**  
 4. **Clone this repository into the folder using:**
+
    In terminal(vs code):
-   git clone https://github.com/Adithya3002/temperature-data-analysis.git .   
+   
+         git clone https://github.com/Adithya3002/temperature-data-analysis.git .   
 
 
 ## To Run the Django Application
