@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monthly Temperature Trend</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #0077b6;
+            --background-color: #f0f4f8;
+            --card-background: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-top: 40px;
+            font-size: 2em;
+        }
+
+        #trendChart {
+            display: block;
+            max-width: 90%;
+            width: 1000px;
+            height: 450px;
+            margin: 40px auto;
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            #trendChart {
+                width: 95%;
+                height: auto;
+            }
+
+            h2 {
+                font-size: 1.6em;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Monthly Temperature Trend</h2>
+    <canvas id="trendChart"></canvas>
+
+    <script>
+        fetch('/api/monthly_trend/')
+            .then(res => res.json())
+            .then(data => {
+                const labels = data.monthly_trend.map(row => row.YearMonth);
+                const temps = data.monthly_trend.map(row => row.AvgTemperature);
+
+                new Chart(document.getElementById('trendChart'), {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Avg Temperature (°C)',
+                            data: temps,
+                            borderColor: '#0077b6',
+                            backgroundColor: 'rgba(0, 119, 182, 0.1)',
+                            pointBackgroundColor: '#0077b6',
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            borderWidth: 2,
+                            tension: 0.3,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    font: {
+                                        size: 14
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                ticks: {
+                                    maxRotation: 60,
+                                    minRotation: 45
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Temperature (°C)'
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+    </script>
+</body>
+</html>

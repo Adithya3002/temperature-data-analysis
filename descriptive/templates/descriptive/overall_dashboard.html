@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial; margin: 30px; }
+        canvas { max-width: 800px; margin: 20px auto; display: block; }
+        .summary-box { background: #f0f0f0; padding: 20px; margin-bottom: 30px; border-radius: 10px; width: fit-content; }
+    </style>
+</head>
+<body>
+    <h1>📊 Monthly Temperature Dashboard</h1>
+
+    <div class="summary-box" id="summary"></div>
+
+    <h2>🌡️ Avg Temperature by State</h2>
+    <canvas id="stateChart"></canvas>
+
+    <h2>📈 Monthly Temperature Trend</h2>
+    <canvas id="trendChart"></canvas>
+
+    <script>
+        // Summary
+        fetch('/api/summary/')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('summary').innerHTML = `
+                    <strong>Overall Avg Temp:</strong> ${data.avg_temp} °C<br>
+                    <strong>Total States:</strong> ${data.states}<br>
+                    <strong>Total Months:</strong> ${data.months}<br>
+                    <strong>Total Years:</strong> ${data.years}<br>
+                `;
+            });
+
+        // State Chart
+        fetch('/api/temperature_by_state/')
+            .then(res => res.json())
+            .then(data => {
+                const labels = data.temperature_by_state.map(row => row.State);
+                const temps = data.temperature_by_state.map(row => row.AvgTemperature);
+                new Chart(document.getElementById('stateChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Avg Temp (°C)',
+                            data: temps,
+                            backgroundColor: 'rgba(255, 99, 132, 0.6)'
+                        }]
+                    }
+                });
+            });
+
+        // Trend Chart
+        fetch('/api/monthly_trend/')
+            .then(res => res.json())
+            .then(data => {
+                const labels = data.monthly_trend.map(row => row.YearMonth);
+                const temps = data.monthly_trend.map(row => row.AvgTemperature);
+                new Chart(document.getElementById('trendChart'), {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Avg Temp Over Time (°C)',
+                            data: temps,
+                            borderColor: 'blue',
+                            fill: false
+                        }]
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
