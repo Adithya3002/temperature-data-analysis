@@ -27,23 +27,30 @@ Open your terminal or command prompt and install the required packages.
 pip install tensorflow matplotlib numpy
 
 **2. Flask Web Application**
+
 pip install flask pillow
 
 **3. Django Project with TensorFlow Model Integration**
+
 pip install django      
 
 ## Project Setup
 
 1.Create a folder named DESCRIPTIVE_ANALYSIS**
+
 2.Clone this repository into the folder:** 
 
 ## To Run the Django Application
 
 **Run initial migrations:**
-In terminal(visual studio code): python manage.py migrate
+In terminal(visual studio code):
+
+python manage.py migrate
 
 **Start the development server:**
-In terminal(visual studio code): python manage.py runserver
+In terminal(visual studio code):
+
+python manage.py runserver
 
 **Open a browser and visit:**
 http://127.0.0.1:8000/
